@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>卢腾 - 简历</title>
+  <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#f4f7f9;font-family:"Microsoft YaHei","微软雅黑","Times New Roman",Arial,sans-serif;}
+
+/* ===== 画布 ===== */
+#canvas-wrap{margin:40px auto;width:794px;}
+#slide{
+  width:794px;min-height:1123px;background:#fff;
+  position:relative;box-shadow:0 4px 24px rgba(0,0,0,.35);
+  overflow:visible;
+}
+
+/* ===== 元素 ===== */
+.el{position:absolute;cursor:default;min-width:20px;min-height:12px;}
+
+/* ===== 文字 ===== */
+.el-text{
+  width:100%;min-height:100%;height:auto;
+  overflow:visible;line-height:1.55;
+  word-break:break-word;white-space:pre-wrap;
+  font-family:"Microsoft YaHei","微软雅黑","Times New Roman",Arial,sans-serif;
+  letter-spacing:1.5px;
+}
+
+/* ===== 图片 ===== */
+.el-img-wrap{width:100%;height:100%;position:relative;overflow:hidden;background:#fff;}
+.el-img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;background:transparent;}
+
+/* ===== 线条 ===== */
+.el-line{position:relative;width:100%;height:100%;}
+.el-line svg{position:absolute;inset:0;width:100%;height:100%;}
+
+/* ===== 矩形装饰框 ===== */
+.el-rect{
+  width:100%;height:100%;
+  border:2px solid #660974;
+  border-radius:2px;
+  box-sizing:border-box;
+}
+
+/* ===== 星星装饰 ===== */
+.el-star{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  color:#660974;font-size:16px;
+  user-select:none;line-height:1;
+}
+
+/* ===== 打印 ===== */
+@media print{
+  body{background:#fff;}
+  #canvas-wrap{margin:0;width:100%;}
+  #slide{box-shadow:none;}
+}
+
+  </style>
+</head>
+<body>
+  <div id="canvas-wrap">
+    <div id="slide"></div>
+  </div>
+
+  <script>
+// ============================================================
+//  简历数据文件 (resume-data.js)
+//  此文件由编辑器自动生成，请勿手动修改
+// ============================================================
+
+var INIT_ELEMENTS = [
+  {
+    "id": "e_name",
+    "type": "text",
+    "x": 29,
+    "y": 4,
+    "w": 320,
+    "h": 46,
+    "z": 11,
+    "html": "<span style=\"font-size:34px;font-weight:900;color:#c0392b;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:2px;\">卢腾</span>"
+  },
+  {
+    "id": "e_sub",
+    "type": "text",
+    "x": 133,
+    "y": 14,
+    "w": 330,
+    "h": 36,
+    "z": 12,
+    "html": "<span style=\"font-size:15px;color:#555;font-style:italic;font-family:KaiTi,楷体,STKaiti,serif;\">个人构建网址，如有bug请老师谅解🥺</span>"
+  },
+  {
+    "id": "e_line0",
+    "type": "line",
+    "x": 28,
+    "y": 72,
+    "w": 630,
+    "h": 4,
+    "z": 13,
+    "color": "#2c3e50"
+  },
+  {
+    "id": "e_photo",
+    "type": "image",
+    "x": 687,
+    "y": 89,
+    "w": 77,
+    "h": 87,
+    "z": 12,
+    "src": "https://ching12333.github.io/resume-luteng/assets/img_2.png"
+  },
+  {
+    "id": "e_edu_t",
+    "type": "text",
+    "x": 52,
+    "y": 59,
+    "w": 300,
+    "h": 24,
+    "z": 77,
+    "html": "<span style=\"font-size:15px;font-weight:900;color:#2c3e50;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1px;\">个人介绍</span>"
+  },
+  {
+    "id": "e_school",
+    "type": "text",
+    "x": 28,
+    "y": 91,
+    "w": 640,
+    "h": 20,
+    "z": 17,
+    "html": "★<strong><span style=\"font-size: 16px;\">中国石油大学（华东）</span></strong><span style=\"font-size: 10px;\">（双一流，211）</span>&nbsp;&nbsp;<strong>专业</strong>应用物理学"
+  },
+  {
+    "id": "e_gpa",
+    "type": "text",
+    "x": 28,
+    "y": 118,
+    "w": 640,
+    "h": 20,
+    "z": 18,
+    "html": "●<b>学习成绩</b>GPA：3.37/4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>个人主页</strong>&nbsp;<a href=\"http://114.55.36.132/\" target=\"_blank\" style=\"color:#1a5276;text-decoration:underline;\" data-manus_clickable=\"true\" data-manus_click_id=\"36\">http://114.55.36.132/</a>"
+  },
+  {
+    "id": "e_contact",
+    "type": "text",
+    "x": 28,
+    "y": 143,
+    "w": 640,
+    "h": 20,
+    "z": 19,
+    "html": "●<strong>联系方式</strong>17853086665&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>邮&nbsp;箱</strong>&nbsp;<span style=\"color:#1a5276;text-decoration:underline;\">2309020215@s.upc.edu.cn</span>"
+  },
+  {
+    "id": "e_sci_t",
+    "type": "text",
+    "x": 28,
+    "y": 177,
+    "w": 300,
+    "h": 24,
+    "z": 79,
+    "html": "<span style=\"font-size:15px;font-weight:900;color:#2c3e50;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1px;\">   科研经历</span>"
+  },
+  {
+    "id": "e_r1t",
+    "type": "text",
+    "x": 24,
+    "y": 212,
+    "w": 560,
+    "h": 20,
+    "z": 22,
+    "html": "<strong>纳米孔隙中页岩油赋存<span style=\"color:#c0392b;\">分子动力学模拟</span>与<span style=\"color:#c0392b;\">核磁共振弛豫机制</span>研究</strong>"
+  },
+  {
+    "id": "e_r1d",
+    "type": "text",
+    "x": 599,
+    "y": 212,
+    "w": 162,
+    "h": 20,
+    "z": 23,
+    "html": "<span style=\"font-size:12px;color:#444;\"><span style=\"font-size: 14px;\">2024.10 ~ 2026.1</span></span>"
+  },
+  {
+    "id": "e_r1desc",
+    "type": "text",
+    "x": 21,
+    "y": 244,
+    "w": 730,
+    "h": 52,
+    "z": 24,
+    "html": "<span style=\"font-size:12.5px;\">&nbsp;&nbsp;&nbsp;&nbsp;针对页岩中流固相互作用导致核磁信号识别困难问题，利用分子模拟技术再现高温高压地层环境下页岩油赋存状态，并将所得模拟轨迹用于核磁共振弛豫研究，获得实际测量中难以准确测量的核磁数据。</span>"
+  },
+  {
+    "id": "e_r1b1",
+    "type": "text",
+    "x": 33,
+    "y": 369,
+    "w": 730,
+    "h": 18,
+    "z": 25,
+    "html": "<span style=\"font-size:12.5px;\">★基于 <b>MS，Lammps</b> 等软件，实现页岩油赋存状态的分子动力学模拟</span>"
+  },
+  {
+    "id": "e_r1b2",
+    "type": "text",
+    "x": 31,
+    "y": 393,
+    "w": 730,
+    "h": 18,
+    "z": 26,
+    "html": "<span style=\"font-size:12.5px;\">★利用 <b>VMD，Python</b> 等软件将核磁共振理论与分子模拟结果结合编写脚本，分析计算核磁共振弛豫结果</span>"
+  },
+  {
+    "id": "e_r1b3",
+    "type": "text",
+    "x": 33,
+    "y": 419,
+    "w": 730,
+    "h": 18,
+    "z": 27,
+    "html": "<span style=\"font-size:12.5px;\">★提出并完成不同温度条件下分层弛豫行为的研究等论文核心创新点，并在刘冰教授团队指导下完成论文撰写工作</span>"
+  },
+  {
+    "id": "e_r1paper",
+    "type": "text",
+    "x": 31,
+    "y": 292,
+    "w": 730,
+    "h": 34,
+    "z": 28,
+    "html": "<span style=\"font-size:12.5px;\"><strong><b style=\"color: red;\">论文成果:</b></strong></span><span style=\"font-size: 12.5px;\">Teng Lu, Zhiyang Xie, Yansong Gu Bing</span><span style=\"font-family: &quot;Times New Roman&quot;, serif; font-size: 14px;\"> Liu</span><span style=\"font-family: &quot;Times New Roman&quot;, serif; font-size: 14px;\"> </span><span style=\"font-size: 12.5px;\">. Layer-Resolved NMR Relaxation Characterization of Model Shale-Oil Occurrence States in Quartz Nanopores. Colloids and Surfaces A: Physicochemical and Engineering Aspects, 2026, Under Review（中科院二区，独立一作）</span>"
+  },
+  {
+    "id": "e_r2t",
+    "type": "text",
+    "x": 33,
+    "y": 447,
+    "w": 560,
+    "h": 20,
+    "z": 29,
+    "html": "<strong>页岩油核磁弛豫机<span style=\"color:#c0392b;\">制模拟与实验结果</span>研究</strong>"
+  },
+  {
+    "id": "e_r2d",
+    "type": "text",
+    "x": 605,
+    "y": 445,
+    "w": 162,
+    "h": 20,
+    "z": 30,
+    "html": "<span style=\"font-size:12px;color:#444;\"><span style=\"font-size: 14px;\">2026.1 ~ 至今</span></span>"
+  },
+  {
+    "id": "e_r2desc",
+    "type": "text",
+    "x": 30,
+    "y": 469,
+    "w": 730,
+    "h": 40,
+    "z": 31,
+    "html": "<span style=\"font-size:12.5px;\">&nbsp;&nbsp;&nbsp;&nbsp;将模拟测量核磁共振弛豫数据与实际测量数据对比，深入核磁共振弛豫机制难点，改善现有核磁共振弛豫算法，从仿真与实验结合角度完善页岩油纳米孔隙的准确识别</span>"
+  },
+  {
+    "id": "e_r2b1",
+    "type": "text",
+    "x": 32,
+    "y": 518,
+    "w": 730,
+    "h": 18,
+    "z": 32,
+    "html": "<span style=\"font-size:12.5px;\">★从仿真角度计算纳米孔径表面弛豫率，得到核磁数据转换孔径算法的重要改进参数</span>"
+  },
+  {
+    "id": "e_r2b2",
+    "type": "text",
+    "x": 33,
+    "y": 541,
+    "w": 730,
+    "h": 18,
+    "z": 33,
+    "html": "<span style=\"font-size:12.5px;\">★与博士师兄共同完成 SEM 扫描电镜测量，测量 6nm 孔隙核磁共振实验结果，编写<b>核心Python 代码</b></span>"
+  },
+  {
+    "id": "e_proj_t",
+    "type": "text",
+    "x": 25,
+    "y": 580,
+    "w": 300,
+    "h": 24,
+    "z": 82,
+    "html": "<span style=\"font-size:15px;font-weight:900;color:#2c3e50;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1px;\">   项目经历</span>"
+  },
+  {
+    "id": "e_line2",
+    "type": "line",
+    "x": 23,
+    "y": 564,
+    "w": 730,
+    "h": 2,
+    "z": 83,
+    "color": "#2c3e50"
+  },
+  {
+    "id": "e_p1t",
+    "type": "text",
+    "x": 27,
+    "y": 606,
+    "w": 560,
+    "h": 20,
+    "z": 36,
+    "html": "<strong>关于提高无线快充与传统发电机转换效率研究</strong>"
+  },
+  {
+    "id": "e_p1d",
+    "type": "text",
+    "x": 596,
+    "y": 606,
+    "w": 162,
+    "h": 20,
+    "z": 37,
+    "html": "<span style=\"font-size:12px;color:#444;\"><span style=\"font-size: 14px;\">2025.02 ~ 2025.11</span></span>"
+  },
+  {
+    "id": "e_p1desc",
+    "type": "text",
+    "x": 35,
+    "y": 631,
+    "w": 730,
+    "h": 40,
+    "z": 38,
+    "html": "<span style=\"font-size:12.5px;\">&nbsp;&nbsp;&nbsp;&nbsp;面向时代前沿电能转换效率难题，基于两套实验装置，分别研究机械驱动与电能调控两种电磁感应模式下的能量转换效率，探究频率、线圈位形与谐振方式等关键影响因素，并提出\"中继线圈＋多输入系统\"的创新结构</span>"
+  },
+  {
+    "id": "e_p1b1",
+    "type": "text",
+    "x": 30,
+    "y": 718,
+    "w": 730,
+    "h": 18,
+    "z": 39,
+    "html": "<span style=\"font-size:12.5px;\">★独立查阅相关文献，设计电磁感应<strong>谐振耦合</strong>与<strong>机械驱动</strong>转换效率测量实验方案</span>"
+  },
+  {
+    "id": "e_p1b2",
+    "type": "text",
+    "x": 30,
+    "y": 747,
+    "w": 730,
+    "h": 18,
+    "z": 40,
+    "html": "<span style=\"font-size:12.5px;\">★搭建相关实验仪器，主导完成理论模型构建，实验数据采集，测量整理电磁感应转换效率等相关影响因素</span>"
+  },
+  {
+    "id": "e_p1b3",
+    "type": "text",
+    "x": 30,
+    "y": 775,
+    "w": 730,
+    "h": 18,
+    "z": 41,
+    "html": "<span style=\"font-size:12.5px;\">★独立利用 <b>comsol</b> 完成两套实验有限元<strong>仿真模拟</strong>，在张亚萍教授团队指导下完成约60%相关实验报告撰写</span>"
+  },
+  {
+    "id": "e_p1b4",
+    "type": "text",
+    "x": 28,
+    "y": 686,
+    "w": 730,
+    "h": 18,
+    "z": 42,
+    "html": "<span style=\"font-size:12.5px;\"><strong>项目成果：</strong>山东省物理实验竞赛省一，大学生物理实验竞赛<b>国二</b>，相关<b>论文成果</b>队友整理中</span>"
+  },
+  {
+    "id": "e_p2t",
+    "type": "text",
+    "x": 28,
+    "y": 803,
+    "w": 560,
+    "h": 20,
+    "z": 43,
+    "html": "<strong>其余项目经历</strong>"
+  },
+  {
+    "id": "e_p2d",
+    "type": "text",
+    "x": 587,
+    "y": 809,
+    "w": 162,
+    "h": 20,
+    "z": 44,
+    "html": "<span style=\"font-size:12px;color:#444;\"><span style=\"font-size: 14px;\">2023.11 ~ 2025.1</span></span>"
+  },
+  {
+    "id": "e_p2b1",
+    "type": "text",
+    "x": 27,
+    "y": 830,
+    "w": 730,
+    "h": 18,
+    "z": 45,
+    "html": "<span style=\"font-size:12.5px;\">★参加大学生数学建模美赛，数维杯等数学建模竞赛，作为队长与队员共同斩获<strong>国三</strong></span>"
+  },
+  {
+    "id": "e_qual_t",
+    "type": "text",
+    "x": 30,
+    "y": 872,
+    "w": 300,
+    "h": 24,
+    "z": 85,
+    "html": "<span style=\"font-size:15px;font-weight:900;color:#2c3e50;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1px;\">  个人素养</span>"
+  },
+  {
+    "id": "e_line3",
+    "type": "line",
+    "x": 28,
+    "y": 856,
+    "w": 730,
+    "h": 2,
+    "z": 86,
+    "color": "#2c3e50"
+  },
+  {
+    "id": "e_q1",
+    "type": "text",
+    "x": 28,
+    "y": 900,
+    "w": 730,
+    "h": 18,
+    "z": 49,
+    "html": "<span style=\"font-size:12.5px;\">★专业能力：具备较好的科研钻研深度，较高的绘图能力，研究素养扎实</span>"
+  },
+  {
+    "id": "e_q2",
+    "type": "text",
+    "x": 27,
+    "y": 924,
+    "w": 730,
+    "h": 18,
+    "z": 50,
+    "html": "<span style=\"font-size:12.5px;\">★科研能力：有完整独立的<strong>论文查阅、实验设计、数值模拟和实验实现</strong>经历</span>"
+  },
+  {
+    "id": "e_q3",
+    "type": "text",
+    "x": 27,
+    "y": 951,
+    "w": 730,
+    "h": 18,
+    "z": 51,
+    "html": "<span style=\"font-size:12.5px;\">★仿真能力：较为熟练掌握多尺度仿真（MS、Lammps，comsol，OpenFoam）及多种编程语言（python，C）</span>"
+  },
+  {
+    "id": "e_q4",
+    "type": "text",
+    "x": 27,
+    "y": 974,
+    "w": 730,
+    "h": 18,
+    "z": 52,
+    "html": "<span style=\"font-size:12.5px;\">★品质风貌：拥有极强的科研内驱力与抗压能力，擅长多种体育运动具有良好的身体素质</span>"
+  },
+  {
+    "id": "e_work_t",
+    "type": "text",
+    "x": 28,
+    "y": 1014,
+    "w": 300,
+    "h": 24,
+    "z": 88,
+    "html": "<span style=\"font-size:15px;font-weight:900;color:#2c3e50;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1px;\">  工作经历</span>"
+  },
+  {
+    "id": "e_line4",
+    "type": "line",
+    "x": 24,
+    "y": 998,
+    "w": 730,
+    "h": 2,
+    "z": 89,
+    "color": "#2c3e50"
+  },
+  {
+    "id": "e_w1",
+    "type": "text",
+    "x": 25,
+    "y": 1048,
+    "w": 730,
+    "h": 18,
+    "z": 55,
+    "html": "<span style=\"font-size:12.5px;\">★担任应用物理专业班长、学习委员，多次荣获优秀共青团干部，优秀学生干部，优秀学生等荣誉称号</span>"
+  },
+  {
+    "id": "e_w2",
+    "type": "text",
+    "x": 28,
+    "y": 1074,
+    "w": 730,
+    "h": 18,
+    "z": 56,
+    "html": "<span style=\"font-size:12.5px;\">★作为第一负责人，负责校级实践队活动《原典精读·实践转换》，带领团队荣获星级实践队称号</span>"
+  },
+  {
+    "id": "el_1774330617405zz491dypcss",
+    "type": "image",
+    "x": 26,
+    "y": 48,
+    "w": 770,
+    "h": 44,
+    "z": 62,
+    "src": "https://ching12333.github.io/resume-luteng/assets/extracted_100.png"
+  },
+  {
+    "id": "el_1774330720396h5suv5oh6y",
+    "type": "image",
+    "x": 23,
+    "y": 165,
+    "w": 770,
+    "h": 44,
+    "z": 32,
+    "src": "https://ching12333.github.io/resume-luteng/assets/extracted_101.png"
+  },
+  {
+    "id": "el_1774330766203euaasl7u0q",
+    "type": "image",
+    "x": 24,
+    "y": 567,
+    "w": 770,
+    "h": 44,
+    "z": 80,
+    "src": "https://ching12333.github.io/resume-luteng/assets/extracted_102.png"
+  },
+  {
+    "id": "el_1774330830653bekx31z58xu",
+    "type": "image",
+    "x": 23,
+    "y": 861,
+    "w": 770,
+    "h": 44,
+    "z": 84,
+    "src": "https://ching12333.github.io/resume-luteng/assets/extracted_103.png"
+  },
+  {
+    "id": "el_17743308595605ppr915a9e",
+    "type": "image",
+    "x": 25,
+    "y": 1005,
+    "w": 770,
+    "h": 44,
+    "z": 87,
+    "src": "https://ching12333.github.io/resume-luteng/assets/extracted_104.png"
+  },
+  {
+    "id": "ppt_l_1774967420832_3763",
+    "type": "line",
+    "x": 18,
+    "y": 1104,
+    "w": 770,
+    "h": 3,
+    "z": 201,
+    "color": "#c0392b"
+  },
+  {
+    "id": "ppt_t_1774967420832_9387",
+    "type": "text",
+    "x": 28,
+    "y": 1116,
+    "w": 400,
+    "h": 20,
+    "z": 202,
+    "html": "<span style=\"font-size:11px;color:#aaa;letter-spacing:1.5px;\">✦✦ 详细展示 ✦✦✦</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_8220",
+    "type": "text",
+    "x": 28,
+    "y": 1144,
+    "w": 500,
+    "h": 28,
+    "z": 203,
+    "html": "<span style=\"display:inline-block;width:10px;height:20px;background:#1a5276;vertical-align:middle;margin-right:8px;\"></span><span style=\"color: rgb(26, 82, 118); font-family: SimHei, 黑体, &quot;Microsoft YaHei&quot;, sans-serif; font-size: 17px; font-weight: 900; letter-spacing: 1.5px;\">个人介绍</span>"
+  },
+  {
+    "id": "ppt_l_1774967420832_6741",
+    "type": "line",
+    "x": 28,
+    "y": 1172,
+    "w": 770,
+    "h": 2,
+    "z": 204,
+    "color": "#1a5276"
+  },
+  {
+    "id": "ppt_t_1774967420832_4110",
+    "type": "text",
+    "x": 28,
+    "y": 1190,
+    "w": 200,
+    "h": 20,
+    "z": 205,
+    "html": "<strong><span style=\"font-size:14px;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1.5px;\">基本信息</span></strong>"
+  },
+  {
+    "id": "ppt_t_1774967420832_8067",
+    "type": "text",
+    "x": 28,
+    "y": 1216,
+    "w": 350,
+    "h": 22,
+    "z": 206,
+    "html": "<span style=\"font-size:14px;letter-spacing:1.5px;\"><span style=\"color:#8e44ad;font-weight:700;\">性别</span>&nbsp;&nbsp;男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             <span style=\"color:#8e44ad;font-weight:700;\">姓&nbsp;名：</span>卢腾</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_7901",
+    "type": "text",
+    "x": 29,
+    "y": 1242,
+    "w": 500,
+    "h": 25,
+    "z": 207,
+    "html": "<span style=\"font-size:14px;letter-spacing:1.5px;\"><span style=\"color:#8e44ad;font-weight:700;\">籍贯：</span>山东菏泽&nbsp;&nbsp;&nbsp;&nbsp;          <span style=\"color:#8e44ad;font-weight:700;\">政治面貌：</span>共青团员</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_6805",
+    "type": "text",
+    "x": 28,
+    "y": 1272,
+    "w": 700,
+    "h": 22,
+    "z": 208,
+    "html": "<span style=\"font-size:14px;letter-spacing:1.5px;\"><span style=\"color:#8e44ad;font-weight:700;\">电话</span>17853086665&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#8e44ad;font-weight:700;\">邮&nbsp;箱：</span>2309020215@s.upc.edu.cn</span>"
+  },
+  {
+    "id": "ppt_i_1774967420832_9161",
+    "type": "image",
+    "x": 680,
+    "y": 1184,
+    "w": 90,
+    "h": 110,
+    "z": 209,
+    "src": "https://ching12333.github.io/resume-luteng/assets/photo.png"
+  },
+  {
+    "id": "ppt_l_1774967420832_1511",
+    "type": "line",
+    "x": 28,
+    "y": 1300,
+    "w": 770,
+    "h": 1,
+    "z": 210,
+    "color": "#cccccc"
+  },
+  {
+    "id": "ppt_t_1774967420832_9263",
+    "type": "text",
+    "x": 28,
+    "y": 1310,
+    "w": 200,
+    "h": 20,
+    "z": 211,
+    "html": "<strong><span style=\"font-size:14px;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1.5px;\"><span style=\"font-size: 14px;\">教育背景</span></span></strong>"
+  },
+  {
+    "id": "ppt_t_1774967420832_1139",
+    "type": "text",
+    "x": 28,
+    "y": 1336,
+    "w": 300,
+    "h": 22,
+    "z": 212,
+    "html": "<span style=\"font-size:14px;letter-spacing:1.5px;\"><strong>高中：</strong>菏泽一中</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_1910",
+    "type": "text",
+    "x": 340,
+    "y": 1336,
+    "w": 200,
+    "h": 22,
+    "z": 213,
+    "html": "<span style=\"font-size:13px;color:#666;letter-spacing:1.5px;\">2020.9 ~ 2023.7</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_6181",
+    "type": "text",
+    "x": 28,
+    "y": 1364,
+    "w": 350,
+    "h": 22,
+    "z": 214,
+    "html": "<span style=\"font-size:14px;letter-spacing:1.5px;\"><strong>大学：</strong>中国石油大学（华东）</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_2360",
+    "type": "text",
+    "x": 340,
+    "y": 1365,
+    "w": 200,
+    "h": 22,
+    "z": 215,
+    "html": "<span style=\"font-size:13px;color:#666;letter-spacing:1.5px;\">2023.9 ~ 至今</span>"
+  },
+  {
+    "id": "ppt_i_1774967420832_7863",
+    "type": "image",
+    "x": 494,
+    "y": 1310,
+    "w": 152,
+    "h": 131,
+    "z": 212,
+    "src": "https://ching12333.github.io/resume-luteng/assets/heze_logo.png"
+  },
+  {
+    "id": "ppt_i_1774967420832_3033",
+    "type": "image",
+    "x": 666,
+    "y": 1316,
+    "w": 80,
+    "h": 80,
+    "z": 217,
+    "src": "https://ching12333.github.io/resume-luteng/assets/school_logo.jpg"
+  },
+  {
+    "id": "ppt_t_1774967420832_2509",
+    "type": "text",
+    "x": 36,
+    "y": 1396,
+    "w": 700,
+    "h": 22,
+    "z": 218,
+    "html": "<span style=\"font-size:13px;color:#444;letter-spacing:1.5px;\">中国石油大学（华东）：原国家\"<strong>211工程</strong>\"和\"<strong>985优势学科</strong>创新平台项目\"重点建设院校</span>"
+  },
+  {
+    "id": "ppt_l_1774967420832_3211",
+    "type": "line",
+    "x": 28,
+    "y": 1424,
+    "w": 770,
+    "h": 1,
+    "z": 219,
+    "color": "#cccccc"
+  },
+  {
+    "id": "ppt_t_1774967420832_5814",
+    "type": "text",
+    "x": 28,
+    "y": 1434,
+    "w": 200,
+    "h": 20,
+    "z": 220,
+    "html": "<strong><span style=\"font-size:14px;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1.5px;\">成绩简介：</span></strong>"
+  },
+  {
+    "id": "ppt_t_1774967420832_3777",
+    "type": "text",
+    "x": 162,
+    "y": 1457,
+    "w": 730,
+    "h": 22,
+    "z": 221,
+    "html": "<span style=\"letter-spacing: 1.5px; font-size: 14px;\"><strong>专业：</strong>应用物理学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>"
+  },
+  {
+    "id": "ppt_i_1774967420832_4044",
+    "type": "image",
+    "x": 28,
+    "y": 1490,
+    "w": 355,
+    "h": 46,
+    "z": 222,
+    "src": "https://ching12333.github.io/resume-luteng/assets/score_1.png"
+  },
+  {
+    "id": "ppt_i_1774967420832_2636",
+    "type": "image",
+    "x": 395,
+    "y": 1490,
+    "w": 355,
+    "h": 46,
+    "z": 223,
+    "src": "https://ching12333.github.io/resume-luteng/assets/score_2.png"
+  },
+  {
+    "id": "ppt_i_1774967420832_6558",
+    "type": "image",
+    "x": 28,
+    "y": 1540,
+    "w": 355,
+    "h": 46,
+    "z": 224,
+    "src": "https://ching12333.github.io/resume-luteng/assets/score_3.png"
+  },
+  {
+    "id": "ppt_i_1774967420832_3348",
+    "type": "image",
+    "x": 395,
+    "y": 1540,
+    "w": 355,
+    "h": 46,
+    "z": 225,
+    "src": "https://ching12333.github.io/resume-luteng/assets/score_4.png"
+  },
+  {
+    "id": "ppt_i_1774967420832_3821",
+    "type": "image",
+    "x": 28,
+    "y": 1590,
+    "w": 355,
+    "h": 46,
+    "z": 226,
+    "src": "https://ching12333.github.io/resume-luteng/assets/score_5.png"
+  },
+  {
+    "id": "ppt_i_1774967420832_9981",
+    "type": "image",
+    "x": 395,
+    "y": 1590,
+    "w": 355,
+    "h": 46,
+    "z": 227,
+    "src": "https://ching12333.github.io/resume-luteng/assets/score_6.png"
+  },
+  {
+    "id": "ppt_i_1774967420832_7337",
+    "type": "image",
+    "x": 28,
+    "y": 1640,
+    "w": 355,
+    "h": 46,
+    "z": 228,
+    "src": "https://ching12333.github.io/resume-luteng/assets/score_7.png"
+  },
+  {
+    "id": "ppt_i_1774967420832_8154",
+    "type": "image",
+    "x": 395,
+    "y": 1640,
+    "w": 355,
+    "h": 46,
+    "z": 229,
+    "src": "https://ching12333.github.io/resume-luteng/assets/score_8.png"
+  },
+  {
+    "id": "ppt_l_1774967420832_6343",
+    "type": "line",
+    "x": 28,
+    "y": 1700,
+    "w": 770,
+    "h": 1,
+    "z": 230,
+    "color": "#cccccc"
+  },
+  {
+    "id": "ppt_t_1774967420832_3336",
+    "type": "text",
+    "x": 28,
+    "y": 1710,
+    "w": 500,
+    "h": 28,
+    "z": 231,
+    "html": "<span style=\"display:inline-block;width:10px;height:20px;background:#1a5276;vertical-align:middle;margin-right:8px;\"></span><span style=\"font-size:17px;font-weight:900;color:#1a5276;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1.5px;vertical-align:middle;\">科研经历</span>"
+  },
+  {
+    "id": "ppt_l_1774967420832_7829",
+    "type": "line",
+    "x": 28,
+    "y": 1738,
+    "w": 770,
+    "h": 2,
+    "z": 232,
+    "color": "#1a5276"
+  },
+  {
+    "id": "ppt_t_1774967420832_6146",
+    "type": "text",
+    "x": 28,
+    "y": 1756,
+    "w": 560,
+    "h": 24,
+    "z": 233,
+    "html": "<strong><span style=\"font-size:15px;letter-spacing:1.5px;\">纳米孔隙中页岩油赋存<span style=\"color:#c0392b;\">分子动力学模</span><span style=\"color:#c0392b;\">核磁共振弛豫机制</span>研究</span></strong>"
+  },
+  {
+    "id": "ppt_t_1774967420832_9228",
+    "type": "text",
+    "x": 600,
+    "y": 1756,
+    "w": 170,
+    "h": 24,
+    "z": 234,
+    "html": "<span style=\"font-size:13px;color:#666;letter-spacing:1.5px;\">2024.10 ~ 2026.1</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_2528",
+    "type": "text",
+    "x": 28,
+    "y": 1787,
+    "w": 770,
+    "h": 50,
+    "z": 235,
+    "html": "<span style=\"font-size:13px;letter-spacing:1.5px;\">&nbsp;&nbsp;&nbsp;&nbsp;针对页岩中流固相互作用导致核磁信号识别困难问题，利用分子模拟技术再现高温高压地层环境下页岩油赋存状态，并将所得模拟轨迹用于核磁共振弛豫研究，获得实际测量中难以准确测量的核磁数据</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_3229",
+    "type": "text",
+    "x": 25,
+    "y": 1838,
+    "w": 400,
+    "h": 36,
+    "z": 347,
+    "html": "<span style=\"font-size:26px;font-family:Georgia,serif;letter-spacing:1.5px;\"><strong>Graphics Abstract</strong></span>"
+  },
+  {
+    "id": "ppt_i_1774967420832_7148",
+    "type": "image",
+    "x": 12,
+    "y": 1874,
+    "w": 770,
+    "h": 202,
+    "z": 237,
+    "src": "https://ching12333.github.io/resume-luteng/assets/extracted_200.jpg"
+  },
+  {
+    "id": "ppt_t_1774967420832_4459",
+    "type": "text",
+    "x": 29,
+    "y": 2769,
+    "w": 600,
+    "h": 38,
+    "z": 335,
+    "html": "<span style=\"font-size:26px;font-family:Georgia,serif;letter-spacing:1.5px;\"><strong>Representative Results</strong></span>"
+  },
+  {
+    "id": "ppt_i_1774967420832_8350",
+    "type": "image",
+    "x": 20,
+    "y": 2787,
+    "w": 358,
+    "h": 332,
+    "z": 240,
+    "src": "https://ching12333.github.io/resume-luteng/assets/extracted_201.jpg"
+  },
+  {
+    "id": "ppt_i_1774967420832_6496",
+    "type": "image",
+    "x": 15,
+    "y": 3641,
+    "w": 400,
+    "h": 320,
+    "z": 241,
+    "src": "https://ching12333.github.io/resume-luteng/assets/fig2_results.png"
+  },
+  {
+    "id": "ppt_t_1774967420832_2491",
+    "type": "text",
+    "x": 25,
+    "y": 3083,
+    "w": 340,
+    "h": 36,
+    "z": 242,
+    "html": "<span style=\"font-size:11px;color:#555;letter-spacing:1.5px;\"><strong>Figure 1.</strong> Initial configuration of n-octane confined between two rigid quartz surfaces under shale reservoir conditions.</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_7003",
+    "type": "text",
+    "x": 393,
+    "y": 3082,
+    "w": 400,
+    "h": 36,
+    "z": 243,
+    "html": "<span style=\"font-size:11px;color:#555;letter-spacing:1.5px;\"><strong>Figure 2.</strong> (a) Orientational distribution in X-Z plane (b) Two-dimensional mass density distribution (c)(d) one-dimensional mass density distribution.</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_7591",
+    "type": "text",
+    "x": 84,
+    "y": 3340,
+    "w": 770,
+    "h": 22,
+    "z": 244,
+    "html": "<span style=\"font-size:13px;color:#555;letter-spacing:1.5px;\"><span style=\"font-family: KaiTi, 楷体, STKaiti, serif;\">篇幅问题仅展示部分建模过程与实验结果，导师若愿对学生指导可联<span style=\"color:#1a5276;text-decoration:underline;\">邮件</span>，学生万表感激</span></span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_8424",
+    "type": "text",
+    "x": 24,
+    "y": 3264,
+    "w": 770,
+    "h": 40,
+    "z": 245,
+    "html": "<span style=\"font-size:13px;letter-spacing:1.5px;\"><span style=\"color:#c0392b;font-weight:700;\">●<b style=\"color: red;\">论文成果</b></span></span><span style=\"font-size: 12.5px;\">Teng Lu, Zhiyang Xie, Yansong Gu et al. Layer-Resolved NMR Relaxation Characterization of Model Shale-Oil Occurrence States in Quartz Nanopores. Colloids and Surfaces A: Physicochemical and Engineering Aspects, 2026, Under Review（中科院二区，独立一作）</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_1524",
+    "type": "text",
+    "x": 25,
+    "y": 3160,
+    "w": 200,
+    "h": 22,
+    "z": 246,
+    "html": "<strong><span style=\"font-size:14px;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1.5px;\">论文工作简介：</span></strong>"
+  },
+  {
+    "id": "ppt_t_1774967420832_9635",
+    "type": "text",
+    "x": 21,
+    "y": 3186,
+    "w": 770,
+    "h": 22,
+    "z": 247,
+    "html": "<span style=\"font-size:13px;letter-spacing:1.5px;\">&lt;利用 <b>MS</b> 软件构建纳米页岩油孔隙，并通过 Lammps 软件模拟计算页岩油赋存状态的分子动力学</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_6480",
+    "type": "text",
+    "x": 21,
+    "y": 3214,
+    "w": 770,
+    "h": 22,
+    "z": 248,
+    "html": "<span style=\"font-size:13px;letter-spacing:1.5px;\">&lt;利用 <b>VMD，Python</b> 等软件将核磁共振理论与分子模拟结果结合编写脚本，分析计算核磁共振弛豫结果</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_7170",
+    "type": "text",
+    "x": 22,
+    "y": 3239,
+    "w": 770,
+    "h": 22,
+    "z": 249,
+    "html": "<span style=\"font-size:13px;letter-spacing:1.5px;\">&lt;提出并完成不同温度条件下分层弛豫行为的研究等论文核心创新点，并在刘冰教授团队指导下完成论文撰写工作</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_9659",
+    "type": "text",
+    "x": 41,
+    "y": 3372,
+    "w": 600,
+    "h": 50,
+    "z": 250,
+    "html": "<span style=\"font-size:32px;font-weight:900;color:#1a5276;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1.5px;\">论文相关难题</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_1283",
+    "type": "text",
+    "x": 34,
+    "y": 3428,
+    "w": 770,
+    "h": 26,
+    "z": 251,
+    "html": "<strong><span style=\"font-size:16px;letter-spacing:1.5px;\">1. 课题项目新，攻克难度大：</span></strong>"
+  },
+  {
+    "id": "ppt_t_1774967420832_5220",
+    "type": "text",
+    "x": 34,
+    "y": 3465,
+    "w": 770,
+    "h": 60,
+    "z": 252,
+    "html": "<span style=\"font-size:13px;line-height:1.7;letter-spacing:1.5px;\">&nbsp;&nbsp;课题方向新颖，整体研究基础薄弱。在核心代码构建之前，课题组仅有一篇相关论文可供参考，且师兄所搭建的模型尚不完善，仍存在较大问题，研究起步阶段面临较高的不确定性与技术难度</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_9781",
+    "type": "text",
+    "x": 30,
+    "y": 3478,
+    "w": 767,
+    "h": 137,
+    "z": 253,
+    "html": "\n\n<p style=\"margin-top: 0pt; margin-bottom: 0pt; margin-left: 0in; direction: ltr; unicode-bidi: embed; word-break: normal;\"><span style=\"font-size: 8.6pt; font-family: 微软雅黑;\">(1)Gu, Y.; Ge, X.; Xiao, P.; Bi, X.; Ma, L.; Yan, D.; Wang, Y.; Wang,</span><span style=\"font-family: &quot;Times New Roman&quot;, serif; font-size: 14px;\"> </span><span style=\"font-family: 微软雅黑; font-size: 8.6pt;\">Z.; Fang, W.; Han, Y. NMR Longitudinal Relaxation Time for Characterizing Oil</span><span style=\"font-family: &quot;Times New Roman&quot;, serif; font-size: 14px;\"> </span><span style=\"font-family: 微软雅黑; font-size: 8.6pt;\">Occurrence in Shale Organic Nanopores: Insights from the Molecular Level.</span><span style=\"font-family: &quot;Times New Roman&quot;, serif; font-size: 14px;\"> </span><span style=\"font-family: 微软雅黑; font-size: 8.6pt;\">Colloids and Surfaces A: Physicochemical and Engineering Aspects 2025, 708 ,</span></p><p style=\"margin-top: 0pt; margin-bottom: 0pt; margin-left: 0in; direction: ltr; unicode-bidi: embed; word-break: normal;\"><span style=\"font-size: 8.6pt; font-family: 微软雅黑;\">136048. https://doi.org/10.1016/j.colsurfa.</span><span style=\"font-size: 8.6pt; font-family: 微软雅黑; font-weight: bold;\">2024</span><span style=\"font-size: 8.6pt; font-family: 微软雅黑;\">.136048.</span><a class=\"easyScholarDOI\" target=\"_blank\" href=\"https://www.sci-hub.vg/10.1016/j.colsurfa.2024.136048.\"><svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" width=\"22px\" height=\"22px\" viewBox=\"0 0 32 32\" enable-background=\"new 0 0 32 32\" xml:space=\"preserve\">  <image id=\"image0\" width=\"32\" height=\"32\" x=\"0\" y=\"0\" href=\"data:image/png;base64,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\"></image></svg></a></p>\n\n"
+  },
+  {
+    "id": "ppt_i_1774967420832_9418",
+    "type": "image",
+    "x": 599,
+    "y": 3804,
+    "w": 173,
+    "h": 140,
+    "z": 254,
+    "src": "https://ching12333.github.io/resume-luteng/assets/extracted_105.png"
+  },
+  {
+    "id": "ppt_i_1774967420832_3349",
+    "type": "image",
+    "x": 434,
+    "y": 3641,
+    "w": 351,
+    "h": 152,
+    "z": 255,
+    "src": "https://ching12333.github.io/resume-luteng/assets/extracted_106.png"
+  },
+  {
+    "id": "ppt_t_1774967420832_7773",
+    "type": "text",
+    "x": 26,
+    "y": 3964,
+    "w": 770,
+    "h": 22,
+    "z": 256,
+    "html": "<span style=\"font-size:12px;color:#666;letter-spacing:1.5px;\">ps：本人对顾师兄十分软佩，顾师兄还是非常非常厉害的，博士四年从零到有构建起完整的核磁代码，是课题组绝对主力</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_6610",
+    "type": "text",
+    "x": 25,
+    "y": 3997,
+    "w": 770,
+    "h": 26,
+    "z": 257,
+    "html": "<strong><span style=\"font-size:16px;letter-spacing:1.5px;\">2. 主动应对资源局限，强化自主研究能力</span></strong>"
+  },
+  {
+    "id": "ppt_t_1774967420832_8180",
+    "type": "text",
+    "x": 30,
+    "y": 4023,
+    "w": 770,
+    "h": 60,
+    "z": 258,
+    "html": "<span style=\"font-size:13px;line-height:1.7;letter-spacing:1.5px;\">&nbsp;&nbsp;&nbsp;&nbsp;  所在课题组资及硬件资源有限，本人作为编外人员，暂未分配工位，在研究过程中难以随时获得导师或学长的直接指导。面对新设课题，导师事务繁忙、指导时间有限，本人更多依靠<strong>自主</strong>学习与独立探索推进研究，在克服困难的过程中持续提升解决问题的能力</span>"
+  },
+  {
+    "id": "ppt_i_1774967420832_9762",
+    "type": "image",
+    "x": 25,
+    "y": 4109,
+    "w": 340,
+    "h": 260,
+    "z": 259,
+    "src": "https://ching12333.github.io/resume-luteng/assets/chat_img2.jpg"
+  },
+  {
+    "id": "ppt_t_1774967420832_7261",
+    "type": "text",
+    "x": 380,
+    "y": 4082,
+    "w": 390,
+    "h": 60,
+    "z": 260,
+    "html": "<span style=\"font-size:13px;line-height:1.7;letter-spacing:1.5px;\">&nbsp;&nbsp;&nbsp;&nbsp; 具备较强<strong>抗压</strong>能力，能够在高难度课题中保持稳定的推进节奏。面对现有代码无法满足研究需求的情形，曾投入数月时间独立完成程序重跑，历经多次反复调试与迭代，在这一过程中持续锤炼心理韧性与攻坚能力</span>"
+  },
+  {
+    "id": "ppt_i_1774967420832_2278",
+    "type": "image",
+    "x": 362,
+    "y": 4189,
+    "w": 390,
+    "h": 188,
+    "z": 261,
+    "src": "https://ching12333.github.io/resume-luteng/assets/folder2_img.png"
+  },
+  {
+    "id": "ppt_t_1774967420832_2332",
+    "type": "text",
+    "x": 48,
+    "y": 4371,
+    "w": 340,
+    "h": 25,
+    "z": 262,
+    "html": "<span style=\"font-size:12px;color:#555;letter-spacing:1.5px;\">Fig 3. 组内主要负责与我对接师兄对我的评价</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_6983",
+    "type": "text",
+    "x": 433,
+    "y": 4388,
+    "w": 390,
+    "h": 25,
+    "z": 263,
+    "html": "<span style=\"font-size:12px;color:#555;letter-spacing:1.5px;\">Fig 4. 多次数据整理结果（12月）</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_6153",
+    "type": "text",
+    "x": 10,
+    "y": 4573,
+    "w": 500,
+    "h": 28,
+    "z": 269,
+    "html": "<span style=\"display:inline-block;width:10px;height:20px;background:#1a5276;vertical-align:middle;margin-right:8px;\"></span><span style=\"font-size:17px;font-weight:900;color:#1a5276;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1.5px;vertical-align:middle;\">项目经历</span>"
+  },
+  {
+    "id": "ppt_l_1774967420832_9159",
+    "type": "line",
+    "x": 9,
+    "y": 4602,
+    "w": 770,
+    "h": 2,
+    "z": 270,
+    "color": "#1a5276"
+  },
+  {
+    "id": "ppt_t_1774967420832_3693",
+    "type": "text",
+    "x": 20,
+    "y": 4617,
+    "w": 560,
+    "h": 24,
+    "z": 271,
+    "html": "<strong><span style=\"font-size:15px;letter-spacing:1.5px;\">关于提高无线快充与传统发电机转换效率研究</span></strong>"
+  },
+  {
+    "id": "ppt_t_1774967420832_9468",
+    "type": "text",
+    "x": 617,
+    "y": 4579,
+    "w": 170,
+    "h": 24,
+    "z": 272,
+    "html": "<span style=\"font-size:13px;color:#666;letter-spacing:1.5px;\">2025.02 ~ 2025.11</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_1321",
+    "type": "text",
+    "x": 19,
+    "y": 4649,
+    "w": 770,
+    "h": 50,
+    "z": 273,
+    "html": "<span style=\"font-size:13px;line-height:1.7;letter-spacing:1.5px;\">&nbsp;&nbsp;&nbsp;&nbsp;面向时代前沿电能转换效率难题，基于两套实验装置，分别研究机械驱动与电能调控两种电磁感应模式下的能量转换效率，探究频率、线圈位形与谐振方式等关键影响因素，并提出\"中继线圈＋多输入系统\"的创新结构</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_4036",
+    "type": "text",
+    "x": 23,
+    "y": 4709,
+    "w": 300,
+    "h": 22,
+    "z": 274,
+    "html": "<strong><span style=\"font-size:14px;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1.5px;\">课题研究技术路线图</span></strong>"
+  },
+  {
+    "id": "ppt_i_1774967420832_9055",
+    "type": "image",
+    "x": 26,
+    "y": 4738,
+    "w": 770,
+    "h": 340,
+    "z": 275,
+    "src": "https://ching12333.github.io/resume-luteng/assets/roadmap2.png"
+  },
+  {
+    "id": "ppt_t_1774967420832_3732",
+    "type": "text",
+    "x": 30,
+    "y": 5112,
+    "w": 600,
+    "h": 38,
+    "z": 276,
+    "html": "<span style=\"font-size:26px;font-family:Georgia,serif;letter-spacing:1.5px;\"><strong>Representative Results</strong></span>"
+  },
+  {
+    "id": "ppt_i_1774967420832_8602",
+    "type": "image",
+    "x": 403,
+    "y": 5907,
+    "w": 370,
+    "h": 280,
+    "z": 277,
+    "src": "https://ching12333.github.io/resume-luteng/assets/fig5_eff.png"
+  },
+  {
+    "id": "ppt_i_1774967420832_1390",
+    "type": "image",
+    "x": 418,
+    "y": 5139,
+    "w": 380,
+    "h": 280,
+    "z": 278,
+    "src": "https://ching12333.github.io/resume-luteng/assets/fig6_freq.png"
+  },
+  {
+    "id": "ppt_t_1774967420832_8723",
+    "type": "text",
+    "x": 38,
+    "y": 5422,
+    "w": 370,
+    "h": 22,
+    "z": 279,
+    "html": "<span style=\"font-size:11px;color:#555;letter-spacing:1.5px;\"><span style=\"font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;\"><span style=\"font-family: SimSun, 宋体, serif;\">Fig 5. 转换效率随轴向偏移距离和激励频<span style=\"font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;\"><span style=\"font-family: SimSun, 宋体, serif;\">改变</span></span>立体分布规律</span></span></span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_1403",
+    "type": "text",
+    "x": 423,
+    "y": 5423,
+    "w": 380,
+    "h": 22,
+    "z": 280,
+    "html": "<span style=\"font-size:11px;color:#555;letter-spacing:1.5px;\">Fig 6. 不同谐振频率与电容参数转换效率图</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_7482",
+    "type": "text",
+    "x": 35,
+    "y": 5468,
+    "w": 770,
+    "h": 24,
+    "z": 281,
+    "html": "<span style=\"font-size:14px;letter-spacing:1.5px;\"><span style=\"color:#c0392b;font-weight:700;\">&lt;项目成果:</span>山东省物理实验竞<strong>省一</strong>，大学生物理实验竞赛<strong>国二</strong>，相关论文成果队友整理中</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_1267",
+    "type": "text",
+    "x": 21,
+    "y": 5505,
+    "w": 200,
+    "h": 22,
+    "z": 282,
+    "html": "<strong><span style=\"font-size:14px;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1.5px;\">项目工作</span></strong>"
+  },
+  {
+    "id": "ppt_t_1774967420832_8972",
+    "type": "text",
+    "x": 21,
+    "y": 5533,
+    "w": 770,
+    "h": 22,
+    "z": 283,
+    "html": "<span style=\"font-size:13px;letter-spacing:1.5px;\">&lt;独立查阅相关文献，设计电磁感<strong>谐振耦合</strong><strong>机械驱动</strong>转换效率测量实验方案</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_3435",
+    "type": "text",
+    "x": 21,
+    "y": 5559,
+    "w": 770,
+    "h": 22,
+    "z": 284,
+    "html": "<span style=\"font-size:13px;letter-spacing:1.5px;\">&lt;搭建相关实验仪器，主导完成理论模型构建，实验数据采集，观测整理电磁感应转换效率等相关影响因素</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_9289",
+    "type": "text",
+    "x": 21,
+    "y": 5585,
+    "w": 770,
+    "h": 22,
+    "z": 285,
+    "html": "<span style=\"font-size:13px;letter-spacing:1.5px;\">&lt;独立利用 <strong>comsol</strong> 完成两套实验有限<strong>仿真模拟</strong>，在张亚萍教授团队指导下完成60% 相关实验报告撰写</span>"
+  },
+  {
+    "id": "ppt_i_1774967420832_8091",
+    "type": "image",
+    "x": 5,
+    "y": 5607,
+    "w": 240,
+    "h": 200,
+    "z": 286,
+    "src": "https://ching12333.github.io/resume-luteng/assets/gif1_mech_opt.gif"
+  },
+  {
+    "id": "ppt_i_1774967420832_3272",
+    "type": "image",
+    "x": 234,
+    "y": 5617,
+    "w": 240,
+    "h": 200,
+    "z": 287,
+    "src": "https://ching12333.github.io/resume-luteng/assets/gif2_elec_small.gif"
+  },
+  {
+    "id": "ppt_i_1774967420832_9721",
+    "type": "image",
+    "x": 508,
+    "y": 5609,
+    "w": 240,
+    "h": 200,
+    "z": 288,
+    "src": "https://ching12333.github.io/resume-luteng/assets/fig9_award.jpg"
+  },
+  {
+    "id": "ppt_t_1774967420832_4647",
+    "type": "text",
+    "x": 40,
+    "y": 5812,
+    "w": 292,
+    "h": 20,
+    "z": 289,
+    "html": "<span style=\"font-size:11px;color:#555;letter-spacing:1.5px;\">Fig 7. 机械能驱动磁场运<comsol 模拟<=\"\" span=\"\"></comsol></span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_5311",
+    "type": "text",
+    "x": 234,
+    "y": 5812,
+    "w": 240,
+    "h": 20,
+    "z": 290,
+    "html": "<span style=\"font-size:11px;color:#555;letter-spacing:1.5px;\">Fig 8. 电能调控磁场强度 comsol 模拟</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_3502",
+    "type": "text",
+    "x": 537,
+    "y": 5809,
+    "w": 240,
+    "h": 20,
+    "z": 291,
+    "html": "<span style=\"font-size:11px;color:#555;letter-spacing:1.5px;\">Fig 9. 竞赛获奖情况</span>"
+  },
+  {
+    "id": "ppt_l_1774967420832_1501",
+    "type": "line",
+    "x": 15,
+    "y": 5615,
+    "w": 770,
+    "h": 1,
+    "z": 292,
+    "color": "#cccccc"
+  },
+  {
+    "id": "ppt_t_1774967420832_8023",
+    "type": "text",
+    "x": 24,
+    "y": 5863,
+    "w": 560,
+    "h": 24,
+    "z": 350,
+    "html": "<strong><span style=\"font-size:15px;letter-spacing:1.5px;\">其余项目经历</span></strong>"
+  },
+  {
+    "id": "ppt_t_1774967420832_5289",
+    "type": "text",
+    "x": 602,
+    "y": 5873,
+    "w": 170,
+    "h": 24,
+    "z": 294,
+    "html": "<span style=\"font-size:13px;color:#666;letter-spacing:1.5px;\">2023.11 ~ 2025.1</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_2055",
+    "type": "text",
+    "x": 24,
+    "y": 5893,
+    "w": 770,
+    "h": 22,
+    "z": 295,
+    "html": "<span style=\"font-size:13px;letter-spacing:1.5px;\">&lt;大学生数学建模美赛，数维杯等数学建模竞赛等竞赛介绍：</span>"
+  },
+  {
+    "id": "ppt_i_1774967420832_7441",
+    "type": "image",
+    "x": 15,
+    "y": 5856,
+    "w": 360,
+    "h": 280,
+    "z": 293,
+    "src": "https://ching12333.github.io/resume-luteng/assets/fig10_math.png"
+  },
+  {
+    "id": "ppt_i_1774967420832_6372",
+    "type": "image",
+    "x": 7,
+    "y": 6049,
+    "w": 378,
+    "h": 188,
+    "z": 297,
+    "src": "https://ching12333.github.io/resume-luteng/assets/fig11_road.png"
+  },
+  {
+    "id": "ppt_t_1774967420832_8177",
+    "type": "text",
+    "x": 105,
+    "y": 6192,
+    "w": 360,
+    "h": 20,
+    "z": 298,
+    "html": "<span style=\"font-size:11px;color:#555;letter-spacing:1.5px;\">Fig 10. 数维杯与美赛介绍</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_1859",
+    "type": "text",
+    "x": 416,
+    "y": 6194,
+    "w": 368,
+    "h": 20,
+    "z": 299,
+    "html": "<span style=\"font-size:11px;color:#555;letter-spacing:1.5px;\">Fig 11. 数学建模美赛巴尔基摩道路可达性分</span>"
+  },
+  {
+    "id": "ppt_l_1774967420832_7592",
+    "type": "line",
+    "x": 19,
+    "y": 5841,
+    "w": 770,
+    "h": 1,
+    "z": 300,
+    "color": "#cccccc"
+  },
+  {
+    "id": "ppt_t_1774967420832_5881",
+    "type": "text",
+    "x": 36,
+    "y": 6242,
+    "w": 500,
+    "h": 28,
+    "z": 301,
+    "html": "<span style=\"display:inline-block;width:10px;height:20px;background:#1a5276;vertical-align:middle;margin-right:8px;\"></span><span style=\"font-size:17px;font-weight:900;color:#1a5276;font-family:SimHei,黑体,Microsoft YaHei,sans-serif;letter-spacing:1.5px;vertical-align:middle;\">个人素养</span>"
+  },
+  {
+    "id": "ppt_l_1774967420832_6572",
+    "type": "line",
+    "x": 36,
+    "y": 6270,
+    "w": 770,
+    "h": 2,
+    "z": 302,
+    "color": "#1a5276"
+  },
+  {
+    "id": "ppt_t_1774967420832_5603",
+    "type": "text",
+    "x": 36,
+    "y": 6288,
+    "w": 770,
+    "h": 26,
+    "z": 303,
+    "html": "<span style=\"font-size:13.5px;letter-spacing:1.5px;\">●<strong>专业能力</strong>具备较好的科研钻研深度，较高的绘图能力，研究素养扎实</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_5561",
+    "type": "text",
+    "x": 36,
+    "y": 6318,
+    "w": 770,
+    "h": 26,
+    "z": 304,
+    "html": "<span style=\"font-size:13.5px;letter-spacing:1.5px;\">●<strong>科研能力</strong>有完整独立的<strong>论文查阅、实验设计、数值模拟和实验实现</strong>经历</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_3660",
+    "type": "text",
+    "x": 36,
+    "y": 6347,
+    "w": 770,
+    "h": 26,
+    "z": 305,
+    "html": "<span style=\"font-size:13.5px;letter-spacing:1.5px;\">●<strong>仿真能力</strong>较为熟练掌握多尺度仿真（MS、Lammps，comsol，OpenFoam）及多种编程语言（python，C）</span>"
+  },
+  {
+    "id": "ppt_t_1774967420832_5323",
+    "type": "text",
+    "x": 36,
+    "y": 6378,
+    "w": 770,
+    "h": 26,
+    "z": 306,
+    "html": "<span style=\"font-size:13.5px;letter-spacing:1.5px;\">●<strong>品质风貌</strong>拥有极强的科研内驱力与抗压能力，擅长多种体育运动具有良好的身体素</span>"
+  },
+  {
+    "id": "ppt_i_1774967420832_4671",
+    "type": "image",
+    "x": 22,
+    "y": 6409,
+    "w": 290,
+    "h": 200,
+    "z": 345,
+    "src": "https://ching12333.github.io/resume-luteng/assets/cert_img.png"
+  },
+  {
+    "id": "ppt_i_1774967420832_4187",
+    "type": "image",
+    "x": 516,
+    "y": 6427,
+    "w": 231,
+    "h": 179,
+    "z": 346,
+    "src": "https://ching12333.github.io/resume-luteng/assets/swim_img.jpg"
+  },
+  {
+    "id": "ppt_i_1774967420832_5688",
+    "type": "image",
+    "x": 281,
+    "y": 6415,
+    "w": 293,
+    "h": 320,
+    "z": 309,
+    "src": "https://ching12333.github.io/resume-luteng/assets/run_img.jpg"
+  },
+  {
+    "id": "el_17749699167278tedx7286qb",
+    "type": "image",
+    "x": 393,
+    "y": 2783,
+    "w": 374,
+    "h": 289,
+    "z": 326,
+    "src": "https://ching12333.github.io/resume-luteng/assets/extracted_107.png"
+  },
+  {
+    "id": "el_17749727397433v72d7e45i3",
+    "type": "image",
+    "x": 42,
+    "y": 5149,
+    "w": 380,
+    "h": 280,
+    "z": 330,
+    "src": "https://ching12333.github.io/resume-luteng/assets/extracted_108.png"
+  },
+  {
+    "id": "el_1774973092073rkw10l0mv8r",
+    "type": "image",
+    "x": 435,
+    "y": 3886,
+    "w": 163,
+    "h": 72,
+    "z": 331,
+    "src": "https://ching12333.github.io/resume-luteng/assets/extracted_109.png"
+  },
+  {
+    "id": "el_1774973092561qldmg5keayi",
+    "type": "image",
+    "x": 435,
+    "y": 3786,
+    "w": 180,
+    "h": 93,
+    "z": 332,
+    "src": "https://ching12333.github.io/resume-luteng/assets/extracted_110.png"
+  },
+  {
+    "id": "el_1779120540580v6cdkbho3e",
+    "type": "text",
+    "x": 311,
+    "y": 1457,
+    "w": 730,
+    "h": 22,
+    "z": 336,
+    "html": "<span style=\"letter-spacing: 1.5px; font-size: 14px;\">&nbsp;<strong>学习绩点：</strong>84.3/100&nbsp;&nbsp;&nbsp;&nbsp;<strong>专业排名：</strong>14/57&nbsp;&nbsp;&nbsp;&nbsp;</span>"
+  },
+  {
+    "id": "el_1779120978148jd4y3ah8kxn",
+    "type": "text",
+    "x": 31,
+    "y": 2088,
+    "w": 744,
+    "h": 796,
+    "z": 339,
+    "html": "\n<p class=\"MsoNormal\" style=\"line-height:150%;layout-grid-mode:char;mso-layout-grid-align:\nnone\"><span lang=\"EN-US\" style=\"font-family:&quot;Times New Roman&quot;,serif\">Nuclear-</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">magnetic resonance (NMR) is widely used to characterize fluids in shale oil</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> </span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">r</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">eservoirs, yet resolving weakly adsorbed transition states in nanoporous</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> </span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">s</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">ystems remains challenging. This difficulty arises from nanoscale confinement,</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> </span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">signal overlap, and limited density contrast, which obscure the correspondence</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> b</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">etween NMR responses and local fluid occurrence. In this study, molecular</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> d</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">ynamics simulations coupled with NMR relaxation theory were employed to</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> i</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">nvestigate n-octane confined in hydroxylated quartz nanopores under reservoir</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> c</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">onditions. A layer-resolved </span><i style=\"font-family: &quot;Times New Roman&quot;, serif;\">T</i><sub style=\"font-family: &quot;Times New Roman&quot;, serif;\">1</sub><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">/</span><i style=\"font-family: &quot;Times New Roman&quot;, serif;\">T</i><sub style=\"font-family: &quot;Times New Roman&quot;, serif;\">2</sub><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">relaxation framework was established to distinguish surface-affected, weakly</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> a</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">dsorbed transition, and bulk-like regions beyond conventional bulk-averaged</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> d</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">escriptions. Unlike conventional density-based classification, this framework</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> d</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">irectly tests whether a geometrically adsorbed layer remains dynamically</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> a</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">dsorption-dominated or has already evolved toward free-like relaxation</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> b</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">ehavior. The results show that quartz confinement produces distinct</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> l</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">ayer-specific </span><i style=\"font-family: &quot;Times New Roman&quot;, serif;\">T</i><sub style=\"font-family: &quot;Times New Roman&quot;, serif;\">1</sub><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">/</span><i style=\"font-family: &quot;Times New Roman&quot;, serif;\">T</i><sub style=\"font-family: &quot;Times New Roman&quot;, serif;\">2</sub><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> signatures, reflecting</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> d</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">ifferences in molecular packing, orientational ordering, and</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> i</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">ntra-/intermolecular relaxation contributions. In particular, the fourth</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> a</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">dsorption layer still appears as a density-defined near-wall layer, but its </span><i style=\"font-family: &quot;Times New Roman&quot;, serif;\">T</i><sub style=\"font-family: &quot;Times New Roman&quot;, serif;\">1</sub><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">/</span><i style=\"font-family: &quot;Times New Roman&quot;, serif;\">T</i><sub style=\"font-family: &quot;Times New Roman&quot;, serif;\">2</sub><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> v</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">alue and relaxation characteristics approach those of the bulk-like region,</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> r</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">evealing a structurally adsorbed but dynamically free-like transition state.</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> T</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">emperature-dependent analysis further demonstrates that this transition layer</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"> p</span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">rogressively loses its density contrast at elevated temperature, whereas its</span></p><span style=\"font-family: &quot;Times New Roman&quot;, serif;\"><p class=\"MsoNormal\" style=\"line-height:150%;layout-grid-mode:char;mso-layout-grid-align:\nnone\"><span lang=\"EN-US\" style=\"font-family:&quot;Times New Roman&quot;,serif\">evolution toward a bulk-like free state remains clearly traceable by <i>T</i><sub>1</sub>/<i>T</i><sub>2</sub>.</span> Quantitative relationships were further established among <i>T</i><sub>1</sub>/<i>T</i><sub>2</sub>, pore size, and the free-to-adsorbed oil ratio. These relationships demonstrate that layer-resolved relaxation analysis can bridge molecular occurrence states and experimentally relevant NMR responses. Overall, these results show that layer-resolved <i>T</i><sub>1</sub>/<i>T</i><sub>2</sub> is not merely a quantitative descriptor of confined-oil partitioning, but also a sensitive probe for resolving weakly adsorbed transition-layer dynamics and their thermal evolution in hydroxylated quartz nanopores.</p></span><span style=\"font-family: &quot;Times New Roman&quot;, serif;\">\n\n<p class=\"MsoNormal\" style=\"line-height:150%;layout-grid-mode:char;mso-layout-grid-align:\nnone\"><b><span lang=\"EN-US\" style=\"font-family: &quot;Times New Roman&quot;, serif;\">&nbsp;</span></b></p>\n</span>\n"
+  },
+  {
+    "id": "el_1779121533184xgqi3fif6w",
+    "type": "text",
+    "x": 18,
+    "y": 4400,
+    "w": 770,
+    "h": 60,
+    "z": 343,
+    "html": "\n\n<div style=\"margin-top: 5.4pt; margin-bottom: 0pt; margin-left: 0.2in; text-indent: -0.2in; direction: ltr; unicode-bidi: embed; word-break: normal;\"><span style=\"font-size:10.8pt\"><span style=\"mso-special-format:bullet;font-family:Wingdings\">²</span></span><span style=\"font-size: 10.8pt; font-family: 微软雅黑;\">学习了解了</span><span style=\"font-size: 10.8pt; font-family: 微软雅黑; font-weight: bold;\">MS</span><span style=\"font-size: 10.8pt; font-family: 微软雅黑; font-weight: bold;\">，</span><span style=\"font-size: 10.8pt; font-family: 微软雅黑; font-weight: bold;\">Lammps</span><span style=\"font-size: 10.8pt; font-family: 微软雅黑;\">等分子动力学模拟软件，</span><span style=\"font-size: 10.8pt; font-family: 微软雅黑;\">完成从建模到计算的基础训练</span></div><div style=\"margin-top: 5.4pt; margin-bottom: 0pt; margin-left: 0.2in; text-indent: -0.2in; direction: ltr; unicode-bidi: embed; word-break: normal;\"><span style=\"font-size:10.8pt\"><span style=\"mso-special-format:bullet;font-family:Wingdings\">²</span></span><span style=\"font-size: 10.8pt; font-family: 微软雅黑;\">基于<b>VMD</b></span><span style=\"font-size: 10.8pt; font-family: 微软雅黑;\">与 </span><span style=\"font-size: 10.8pt; font-family: 微软雅黑; font-weight: bold;\">Python</span><span style=\"font-size: 10.8pt; font-family: 微软雅黑;\">开展数据后处理与脚本开发，实现核磁共振理论与分子模拟结果的耦合分析，具备独立处理与解析模拟数据的能力</span></div><div style=\"margin-top: 5.4pt; margin-bottom: 0pt; margin-left: 0.2in; text-indent: -0.2in; direction: ltr; unicode-bidi: embed; word-break: normal;\"><span style=\"font-size:10.8pt\"><span style=\"mso-special-format:bullet;font-family:Wingdings\">²</span></span><span style=\"font-size: 10.8pt; font-family: 微软雅黑;\">通过科研训练提升了问题驱动的学习能力与抗压能力，形成严谨踏实、持续探索的科研素养</span></div>\n\n"
+  },
+  {
+    "id": "el_1779121724273vvfdm8jdpu",
+    "type": "text",
+    "x": 587,
+    "y": 6378,
+    "w": 776,
+    "h": 26,
+    "z": 344,
+    "html": "<span style=\"font-size: 13.5px;\">质</span>"
+  },
+  {
+    "id": "el_1779123047547nhx9zcyrgh8",
+    "type": "text",
+    "x": 408,
+    "y": 290,
+    "w": 162,
+    "h": 20,
+    "z": 348,
+    "html": "<font color=\"#444444\"><span style=\"font-size: 14px;\">*</span></font>"
+  },
+  {
+    "id": "el_1779123357565ihhmt9ul3qb",
+    "type": "text",
+    "x": 13,
+    "y": 4400,
+    "w": 600,
+    "h": 50,
+    "z": 351,
+    "html": "<font color=\"#1a5276\" face=\"SimHei, 黑体, Microsoft YaHei, sans-serif\"><span style=\"font-size: 32px;\"><b>个人收获</b></span></font>"
+  },
+  {
+    "id": "el_1779123490465hjgencbqtkn",
+    "type": "text",
+    "x": 26,
+    "y": 2066,
+    "w": 400,
+    "h": 40,
+    "z": 353,
+    "html": "<span style=\"font-size:26px;font-family:Georgia,serif;letter-spacing:1.5px;\"><strong>Abstract</strong></span>"
+  }
+];
+
+  </script>
+  <script>
+
+function createEl(d){
+  var el = document.createElement('div');
+  el.className = 'el';
+  el.style.cssText = 'left:'+d.x+'px;top:'+d.y+'px;width:'+d.w+'px;'+(d.type==='text'?'min-height':'height')+':'+d.h+'px;z-index:'+(d.z||10)+';';
+
+  if(d.type === 'text'){
+    var inner = document.createElement('div');
+    inner.className = 'el-text';
+    inner.innerHTML = d.html || '';
+    el.appendChild(inner);
+
+  } else if(d.type === 'image'){
+    var wrap = document.createElement('div');
+    wrap.className = 'el-img-wrap';
+    var img = document.createElement('img');
+    img.className = 'el-img';
+    img.src = d.src || '';
+    img.alt = '';
+    wrap.appendChild(img);
+    el.appendChild(wrap);
+
+  } else if(d.type === 'rect'){
+    var rectDiv = document.createElement('div');
+    rectDiv.className = 'el-rect';
+    if(d.color) rectDiv.style.borderColor = d.color;
+    if(d.borderWidth) rectDiv.style.borderWidth = d.borderWidth + 'px';
+    el.appendChild(rectDiv);
+
+  } else if(d.type === 'star'){
+    var starDiv = document.createElement('div');
+    starDiv.className = 'el-star';
+    starDiv.textContent = d.char || '★';
+    if(d.color) starDiv.style.color = d.color;
+    if(d.fontSize) starDiv.style.fontSize = d.fontSize + 'px';
+    el.appendChild(starDiv);
+
+  } else if(d.type === 'line'){
+    var lw = document.createElement('div');
+    lw.className = 'el-line';
+    var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('preserveAspectRatio','none');
+    var ln = document.createElementNS('http://www.w3.org/2000/svg','line');
+    ln.setAttribute('x1','0'); ln.setAttribute('y1','50%');
+    ln.setAttribute('x2','100%'); ln.setAttribute('y2','50%');
+    ln.setAttribute('stroke', d.color || '#2c3e50');
+    ln.setAttribute('stroke-width','2');
+    svg.appendChild(ln); lw.appendChild(svg); el.appendChild(lw);
+  }
+
+  return el;
+}
+
+window.addEventListener('DOMContentLoaded', function(){
+  var slide = document.getElementById('slide');
+  if(!slide || typeof INIT_ELEMENTS === 'undefined') return;
+  INIT_ELEMENTS.forEach(function(d){
+    slide.appendChild(createEl(d));
+  });
+  // 自动计算画布高度
+  var maxBottom = 1123;
+  slide.querySelectorAll('.el').forEach(function(el){
+    var b = (parseInt(el.style.top)||0) + (parseInt(el.style.minHeight||el.style.height)||0);
+    if(b > maxBottom) maxBottom = b;
+  });
+  var pages = Math.ceil((maxBottom + 80) / 1123);
+  slide.style.minHeight = Math.max(1123, pages * 1123) + 'px';
+});
+
+  </script>
+</body>
+</html>
